@@ -1,20 +1,20 @@
 function volume_sphere() {
   const radiusInput = document.getElementById("radius").value;
+  const volumeOutput = document.getElementById("volume");
+
   const radius = parseFloat(radiusInput);
 
-  
   if (isNaN(radius) || radius < 0) {
-    document.getElementById("volume").value = "NaN";
-    return;
+    volumeOutput.value = "NaN";
+    return false; // prevent form submission
   }
 
-  
   const volume = (4 / 3) * Math.PI * Math.pow(radius, 3);
+  volumeOutput.value = volume.toFixed(4);
 
-  
-  document.getElementById("volume").value = volume.toFixed(4);
+  return false; // prevent form submission
 }
-e
+
 
 
 window.onload = document.getElementById('MyForm').onsubmit = volume_sphere;
